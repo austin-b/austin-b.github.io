@@ -125,6 +125,10 @@ article {
     color: #d7dde3;
 }
 
+#home-main article {
+    border-left: none;
+}
+
 p small { color: rgba(230,238,246,0.6); }
 
 footer {
