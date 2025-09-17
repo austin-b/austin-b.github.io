@@ -157,3 +157,42 @@ footer a:hover { color: #eef0f1; }
 @media (max-width: 480px) {
     nav { flex-direction: column; align-items: center; gap: 0.5rem; }
 }
+
+/* Utility classes:
+.lead — larger, slightly brighter paragraph style for prominent intros.
+.caption — smaller, muted text for image captions or meta info.
+code (inline) — monospaced styling with subtle background and padding.
+pre.code-block — block code styling with padding, rounded corners, and overflow handling. */
+.lead {
+    font-size: calc(var(--type-base) * 1.125);
+    color: #eef0f1;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+}
+
+.caption {
+    font-size: 0.85rem;
+    color: rgba(234,239,243,0.6);
+    margin-top: 0.25rem;
+}
+
+code, pre.code-block {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
+    background: rgba(255,255,255,0.03);
+    color: #e6eef6;
+}
+
+code {
+    padding: 0.1rem 0.25rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+pre.code-block {
+    padding: 1rem;
+    border-radius: 8px;
+    overflow: auto;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 1rem 0;
+}
