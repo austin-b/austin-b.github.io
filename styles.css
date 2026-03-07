@@ -58,7 +58,7 @@ header hgroup {
 }
 
 header h2 {
-    margin-left: 0.5rem;
+    /* margin-left: 0.5rem; */
     font-size: calc(var(--type-base) * 1.8);
     font-weight: var(--heading-weight);
     /* letter-spacing: -0.02em; */
@@ -137,7 +137,30 @@ main a:hover {
     padding: 2%;
 }
 
+.header-link {
+    color: var(--accent-color);
+}
+
 ul { margin-left: 20px; margin-bottom: 20px; }
+
+ul.custom-bullets {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+ul.custom-bullets li {
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+ul.custom-bullets li::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color); /* or any color */
+    font-weight: 700;
+}
 
 #project-list {list-style: none;}
 
