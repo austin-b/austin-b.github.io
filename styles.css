@@ -10,12 +10,19 @@
     --type-scale-ratio: 1.25;
     --heading-weight: 600;
 
-    --text-color: #e0f2fe;
+    /* --text-color: #e0f2fe;
     --muted: #bfc3c6;
     --primary-background: #0a1128;
     --secondary-background: #121d3d;
     --accent-color: #00d4ff;
-    --pop-color: #fbbf24;
+    --pop-color: #fbbf24; */
+
+    --text-color: #d1e8e2; /* Pale mint */
+    --muted: #a8b8c3; /* Muted blue-gray */
+    --primary-background: #1a202c; /* Deep navy */
+    --secondary-background: #2d3748; /* Slate gray */
+    --accent-color: #4fd1c5; /* Aqua teal */
+    --pop-color: #63b3ed; /* Sky blue */
 }
 
 .pop {
@@ -141,7 +148,7 @@ main a:hover {
     color: var(--accent-color);
 }
 
-ul { margin-left: 20px; margin-bottom: 20px; }
+ul { margin-left: 20px; }
 
 ul.custom-bullets {
     list-style: none;
