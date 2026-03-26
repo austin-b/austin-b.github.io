@@ -1,0 +1,336 @@
+/* styles2.css — Brutalist Web Design
+ * Principles sourced from: https://brutalist-web.design/
+ *
+ * Core rules observed:
+ *  - Left-aligned black text on a white background
+ *  - System fonts only — no web font downloads
+ *  - Hyperlinks are always underlined, no exceptions
+ *  - No rounded corners, no box-shadows, no animations
+ *  - High contrast; readable at any viewport width
+ *  - Dark mode + increased-contrast via media queries
+ */
+
+/* ── Reset ──────────────────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Design Tokens ──────────────────────────────────────────── */
+:root {
+    --bg:         #ffffff;
+    --fg:         #000000;
+    --muted:      #555555;
+    --border:     #000000;
+    --border-w:   2px;
+    --font-body:  Georgia, 'Times New Roman', serif;
+    --font-mono:  'Courier New', Courier, monospace;
+    --max-w:      72ch;
+    --base:       18px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg:     #111111;
+        --fg:     #eeeeee;
+        --muted:  #999999;
+        --border: #eeeeee;
+    }
+}
+
+@media (prefers-contrast: more) {
+    :root {
+        --bg:     #ffffff;
+        --fg:     #000000;
+        --muted:  #222222;
+        --border: #000000;
+    }
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+html {
+    font-size: var(--base);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-mono);
+    line-height: 1.7;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-mono);
+    font-weight: bold;
+    color: var(--fg);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+h1 { font-size: 2.2rem; }
+
+h2 {
+    font-size: 1.8rem;
+    border-bottom: 3px solid var(--border);
+    padding-bottom: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+h4 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+
+p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+small, .caption {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-family: var(--font-mono);
+}
+
+/* ── Links — underlined, always ─────────────────────────────── */
+a {
+    color: var(--fg);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+a:visited {
+    color: var(--muted);
+    text-decoration: underline;
+}
+
+a:hover, a:focus {
+    background-color: var(--fg);
+    color: var(--bg);
+    text-decoration: none;
+    outline: none;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+header {
+    border-bottom: 4px solid var(--border);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+header hgroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+header h2 {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    text-transform: lowercase;
+}
+
+/* ── Navigation ─────────────────────────────────────────────── */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1rem;
+    list-style: none;
+    margin-top: 0.25rem;
+}
+
+nav li { list-style: none; }
+
+nav a {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--fg);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: normal;
+}
+
+nav a:visited { color: var(--muted); }
+
+nav a:hover, nav a:focus {
+    background-color: var(--fg);
+    color: var(--bg);
+    text-decoration: none;
+    padding: 0 0.2rem;
+}
+
+/* ── Main ───────────────────────────────────────────────────── */
+main {
+    flex-grow: 1;
+}
+
+main a {
+    color: var(--fg);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+main a:hover, main a:focus {
+    background-color: var(--fg);
+    color: var(--bg);
+    text-decoration: none;
+}
+
+/* ── Home Layout (two-column grid) ──────────────────────────── */
+.home-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* border: var(--border-w) solid var(--border); */
+}
+
+.home-layout > section {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Entity Cards ───────────────────────────────────────────── */
+.entity {
+    /* border: var(--border-w) solid var(--border); */
+    padding: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.entity h4 {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.6rem;
+}
+
+.header-link {
+    color: var(--fg);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.header-link:hover, .header-link:focus {
+    background-color: var(--fg);
+    color: var(--bg);
+    text-decoration: none;
+}
+
+/* ── Lists ──────────────────────────────────────────────────── */
+ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+ul.custom-bullets {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+ul.custom-bullets li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+ul.custom-bullets li::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    color: var(--fg);
+}
+
+#project-list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+#project-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+}
+
+#project-list li:first-child {
+    border-top: 1px solid var(--border);
+}
+
+/* ── Article ────────────────────────────────────────────────── */
+article {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+/* ── Pop (emphasis without color gimmicks) ──────────────────── */
+.pop {
+    font-weight: bold;
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
+footer {
+    border-top: 4px solid var(--border);
+    padding-top: 1rem;
+    margin-top: 2rem;
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+footer p {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+footer a {
+    color: var(--fg);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+footer a:hover, footer a:focus {
+    background-color: var(--fg);
+    color: var(--bg);
+    text-decoration: none;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 640px) {
+    body {
+        padding: 1rem 0.75rem;
+    }
+
+    .home-layout {
+        grid-template-columns: 1fr;
+    }
+
+    header h2 {
+        font-size: 1.2rem;
+    }
+
+    nav {
+        gap: 0 0.75rem;
+    }
+}

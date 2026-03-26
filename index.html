@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Tom's Website</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles2.css">
     </head>
     <body>
         <header>
@@ -57,6 +57,12 @@
 		</main>
         <footer>
             <p>[ last updated: 2026-03-26 ]</p>
+            <button id="style-toggle" onclick="
+                var link = document.querySelector('link[rel=stylesheet]');
+                var next = link.href.includes('styles2.css') ? 'styles.css' : 'styles2.css';
+                link.href = next;
+                this.textContent = '[ style: ' + next + ' ]';
+            ">[ style: styles2.css ]</button>
         </footer>
     </body>
 </html>
